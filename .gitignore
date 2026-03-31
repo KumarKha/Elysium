@@ -1,0 +1,22 @@
+# Mac
+.DS_Store
+
+# Node / React
+node_modules/
+build/
+dist/
+
+# Logs
+*.log
+
+# Env
+.env
+
+# Maven / Java
+target/
+*.class
+
+# IDE
+.idea/
+.vscode/
+*.iml
