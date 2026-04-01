@@ -29,7 +29,8 @@ public class Booking {
   @Enumerated(EnumType.STRING)
   private Status bookingStatus;
 
-  // @ManyToOne(mappedBy = "RealtorId")
+  @ManyToOne
+  @JoinColumn(name = "realtorId", nullable = true)
   private Realtor assignedRealtor;
 
   public Booking() {

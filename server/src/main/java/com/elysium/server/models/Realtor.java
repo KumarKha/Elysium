@@ -1,9 +1,9 @@
 package com.elysium.server.models;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.*;
 
 public class Realtor {
     private String firstName;
@@ -14,7 +14,9 @@ public class Realtor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @OneToMany(mappedBy = "assginedRealtor")
-    private long RealtorId;
+    private long realtorId;
+
+    @OneToMany(mappedBy = "assignedRealtor")
+    private List<Booking> bookings = new ArrayList<>();
 
 }
