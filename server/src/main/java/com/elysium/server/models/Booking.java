@@ -17,7 +17,7 @@ public class Booking {
   @UpdateTimestamp
   private LocalDateTime bookingUpdateDate;
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.UUID)
   private long bookingID;
 
   public enum Status {
@@ -25,8 +25,12 @@ public class Booking {
     CLOSED,
     PENDING
   }
+
   @Enumerated(EnumType.STRING)
   private Status bookingStatus;
+
+  // @ManyToOne(mappedBy = "RealtorId")
+  private Realtor assignedRealtor;
 
   public Booking() {
   }
@@ -59,9 +63,16 @@ public class Booking {
   public String getCustomerLastName() {
     return customerLastName;
   }
-  public LocalDateTime getBookingTime(){
+
+  public LocalDateTime getBookingTime() {
     return requestedBookingTime;
   }
-  public 
 
+  public Status getBookingStatus() {
+    return bookingStatus;
+  }
+
+  public long getBookingId() {
+    return bookingID;
+  }
 }
